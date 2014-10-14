@@ -34,12 +34,13 @@ class Player (Person):
             return ', '.join([x.name() for x in lst])
 
         loc = self.location()
+        desc = loc.desc
         exits = loc.exits()
         people = self.people_around()
         all_stuff = self.stuff_around()
 
         print '------------------------------------------------------------'
-        print 'You are in', loc.name()
+        print 'You are in', loc.name(), ':', desc
 
         if all_stuff:
             print 'You see:', names(all_stuff)
