@@ -2,8 +2,8 @@ from mobile import *
 
 class Person (MobileThing):    # Container...
 
-    def __init__ (self,name,loc):
-        MobileThing.__init__(self,name,loc)
+    def __init__ (self,name,loc,desc):
+        MobileThing.__init__(self,name,loc,desc)
         self._max_health = 3
         self._health = self._max_health
 

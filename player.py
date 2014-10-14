@@ -12,8 +12,8 @@ class Player (Person):
     # static field representing the clock
     clock = Clock(0)
 
-    def __init__ (self,name,loc):
-        Person.__init__(self,name,loc)
+    def __init__ (self,name,loc,desc):
+        Person.__init__(self,name,loc,desc)
         Player.me = self
 
     # Grab any kind of thing from player's location, 

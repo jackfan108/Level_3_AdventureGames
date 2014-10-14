@@ -3,8 +3,8 @@ from npc import *
 
 class Troll (NPC):
 
-    def __init__ (self,name,loc,restlessness,hunger):
-        NPC.__init__(self,name,loc,restlessness,10)
+    def __init__ (self,name,loc,restlessness,hunger,desc):
+        NPC.__init__(self,name,loc,restlessness,10,desc)
         self._hunger = hunger
 
     def eat_people (self,time):

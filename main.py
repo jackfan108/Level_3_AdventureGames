@@ -73,23 +73,23 @@ def create_world ():
 
     # The player is the first 'thing' that has to be created
 
-    Player('Blubbering-Fool', oval)
+    Player('Blubbering-Fool', oval, 'an unlikely hero.')
 
-    Radar('handy radar',mh353) 
-    Thing('blackboard', ac113)
-    Thing('lovely-trees', oval)
-    MobileThing('cs-book', oval)
-    MobileThing('math-book', oval)
-    MobileThing('chalice', srift)
-    MobileThing('lantern', ttree)
-    MobileThing('trinity force', cscar)
-    MobileThing('prox card', oval)
-    MobileThing('poro', endw)
+    Radar('handy radar',mh353, 'beep boop bop.') 
+    Thing('blackboard', ac113, 'not a whiteboard.')
+    Thing('lovely-trees', oval, 'subjectively lovely.')
+    MobileThing('cs-book', oval, 'the title is: \"Introduction to First-Person Shooter Games\"')
+    MobileThing('math-book', oval, 'math is hard.')
+    MobileThing('chalice', srift, 'the mana never seems to run out')
+    MobileThing('lantern', ttree, 'it\'s wriggly.')
+    MobileThing('trinity force', cscar, 'tons of damage')
+    MobileThing('prox card', oval, 'Reads, \'Riccardo Pucella\'.')
+    MobileThing('poro', endw, 'it\'s so fluffy!')
 
-    Computer('hal-9000', ac113)
-    Computer('johnny-5', easth)
+    Computer('hal-9000', ac113, 'sinister')
+    Computer('johnny-5', easth, 'boop boop beep')
 
-    Professor('Riccardo',mh353,random.randint(1,5),2)
+    Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
     
     homeworks = ['hw-1', 
                  'hw-2',
@@ -100,7 +100,8 @@ def create_world ():
     
     for homework in homeworks:
         Homework(homework,
-                 random.choice(Room.rooms))
+                 random.choice(Room.rooms),
+                 homework) #reuse name as description
 
     students = ['Frankie Freshman',
                 'Joe Junior',
@@ -111,7 +112,8 @@ def create_world ():
         NPC(student,
             random.choice(Room.rooms),
             random.randint(1,5),
-            random.randint(1,5))
+            random.randint(1,5),
+            student) #reuse name as description
 
     trolls = ['Polyphemus',
               'Gollum']
@@ -120,7 +122,8 @@ def create_world ():
       Troll(troll,
             random.choice(Room.rooms),
             random.randint(1,3),
-            random.randint(1,3))
+            random.randint(1,3),
+            troll) #reuse name as description
 
 
 VERBS = {
