@@ -47,6 +47,12 @@ def create_world ():
     westh = Room('West Hall')
     easth = Room('East Hall')
     babson = Room('Babson College')
+    portal = Room('Magic Portal')
+    srift = Room('Summoner\'s Rift')
+    ttree = Room('Twisted Treeline')
+    cscar = Room('Crystal Scar')
+    endw = Room('End of the world')
+    habyss = Room('Howling Abyss')
 
     biconnect(mh353, 'east',  mh3rd)
     biconnect(mh3rd, 'down',  mh2nd)
@@ -58,6 +64,12 @@ def create_world ():
     biconnect(oval, 'north',  babson)
     biconnect(oval, 'west',  ac1st)
     biconnect(ac1st, 'north',  ac113)
+    biconnect(babson, 'north', portal)
+    biconnect(portal,'north', srift)
+    biconnect(srift, 'west', ttree)
+    biconnect(srift, 'east', cscar)
+    biconnect(srift, 'north', endw)
+    biconnect(endw, 'north', habyss)
 
     # The player is the first 'thing' that has to be created
 
@@ -68,6 +80,11 @@ def create_world ():
     Thing('lovely-trees', oval)
     MobileThing('cs-book', oval)
     MobileThing('math-book', oval)
+    MobileThing('chalice', srift)
+    MobileThing('lantern', ttree)
+    MobileThing('trinity force', cscar)
+    MobileThing('prox card', oval)
+    MobileThing('poro', endw)
 
     Computer('hal-9000', ac113)
     Computer('johnny-5', easth)
