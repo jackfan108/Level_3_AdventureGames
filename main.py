@@ -75,7 +75,7 @@ def create_world ():
 
     Player('Blubbering-Fool', oval, 'an unlikely hero.')
 
-    Radar('handy radar',mh353, 'beep boop bop.') 
+    Radar('handy-radar',mh353, 'beep boop bop.') 
     Thing('blackboard', ac113, 'not a whiteboard.')
     Thing('lovely-trees', oval, 'subjectively lovely.')
     MobileThing('cs-book', oval, 'the title is: \"Introduction to First-Person Shooter Games\"')
@@ -162,10 +162,11 @@ def main ():
     
     print 'Olinland, version 1.4 (Fall 2014)\n'
 
-
     # Create the world
     create_world()
-    
+    print 'mobile objects',MobileThing.instances
+    for i in MobileThing.instances:
+        print i.name(),i.location().name()
     Player.me.look_around()
 
     while True:
