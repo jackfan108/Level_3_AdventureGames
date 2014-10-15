@@ -114,4 +114,7 @@ class Give (Verb):
         obj1.give(Player.me,obj2)
         return SAME_ROUND
 
-        
+class Peek (Verb):
+
+    def action0 (self):
+        Player.me.peek_around()

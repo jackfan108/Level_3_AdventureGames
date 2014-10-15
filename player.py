@@ -27,6 +27,9 @@ class Player (Person):
         for x in self.peek_around():
             if x.name() == name:
                 return x
+        for x in self.contents():
+            if x.name() == name:
+                return x
         return None
 
     def look_around (self):
@@ -38,6 +41,7 @@ class Player (Person):
         exits = loc.exits()
         people = self.people_around()
         all_stuff = self.stuff_around()
+        contents = self.contents()
 
         print '------------------------------------------------------------'
         print 'You are in', loc.name(), ':', desc
@@ -51,6 +55,8 @@ class Player (Person):
             print 'You see:', names(people)
         else:
             print 'You see no one around'
+        if contents:
+            print 'You have:', names(contents)
 
         if exits:
             print 'Exits:', ', '.join([x for x in exits])

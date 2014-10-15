@@ -6,6 +6,7 @@ class Person (MobileThing):    # Container...
         MobileThing.__init__(self,name,loc,desc)
         self._max_health = 3
         self._health = self._max_health
+        self._contents = []
 
     def health (self):
         return self._health
@@ -32,7 +33,10 @@ class Person (MobileThing):    # Container...
     # same location as this person are holding/carrying
 
     def peek_around (self):
-        # FIX ME
+        people = self.people_around()
+        for person in people:
+            for content in person.contents():
+                person.say('I have ' + content.name() + '. You want it? haha!')
         return []
 
     def lose (self,t,loseto):
@@ -90,3 +94,18 @@ class Person (MobileThing):    # Container...
 
     def is_person (self):
         return True
+
+    def have_thing (self,t):
+        for c in self.contents():
+            if c is t:
+                return True
+        return False
+
+    def add_thing (self,t):
+        self._contents.append(t)
+
+    def del_thing (self,t):
+        self._contents = [x for x in self._contents if x is not t]
+
+    def contents (self):
+        return self._contents

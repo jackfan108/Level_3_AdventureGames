@@ -11,7 +11,7 @@ class MobileThing (Thing):
 
     def move (self,loc):
         self.location().del_thing(self)
-        loc.add_thing(self)
+        loc.add_thing(self) 
         self._location = loc
 
     def creation_site (self):
@@ -20,3 +20,11 @@ class MobileThing (Thing):
     def is_mobile_thing (self):
         return True
 
+    def take(self,actor):
+        self.move(actor)
+
+    def drop(self,actor):
+        self.move(actor.location())
+
+    def give(self,actor,target):
+        self.move(target)

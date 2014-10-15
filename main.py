@@ -129,6 +129,7 @@ def create_world ():
 VERBS = {
     'quit' : Quit(),
     'look' : Look(),
+    'peek' : Peek(),
     'wait' : Wait(),
     'take' : Take(),
     'drop' : Drop(),
@@ -164,9 +165,6 @@ def main ():
 
     # Create the world
     create_world()
-    print 'mobile objects',MobileThing.instances
-    for i in MobileThing.instances:
-        print i.name(),i.location().name()
     Player.me.look_around()
 
     while True:
