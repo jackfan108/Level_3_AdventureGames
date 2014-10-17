@@ -6,8 +6,10 @@ class Computer (Thing):
         Thing.__init__(self,name,loc,desc)
 
     def use(self,actor):
-    	for stuff in actor.contents():
-    		if stuff.is_homework():
-    			stuff.do_homework()
+        for stuff in actor.contents():
+            if stuff.is_homework():
+                print('You have finished ' + stuff.name())
+                stuff.do_homework()
+
 
     # FIX ME

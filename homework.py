@@ -10,7 +10,6 @@ class Homework (MobileThing):
     def do_homework (self):
     	self._done = True
     	self._name = 'done-' + self._name
-    	print self._done
 
     def is_homework (self):
         return True
