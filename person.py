@@ -34,10 +34,22 @@ class Person (MobileThing):    # Container...
 
     def peek_around (self):
         people = self.people_around()
+        people_contents = []
         for person in people:
             for content in person.contents():
                 person.say('I have ' + content.name() + '. You want it? haha!')
-        return []
+                people_contents.append(content)
+        if(people_contents == []):
+          print "No one is carrying anything."
+        return people_contents
+
+    def list_contents (self):
+        people = self.people_around()
+        people_contents = []
+        for person in people:
+            for content in person.contents():
+                people_contents.append(content)
+        return people_contents
 
     def lose (self,t,loseto):
         self.say('I lose ' + t.name())
@@ -69,6 +81,8 @@ class Person (MobileThing):    # Container...
 
     def die (self):
         self.location().broadcast('An earth-shattering, soul-piercing scream is heard...')
+        for item in self.contents():
+          item.move(self.location())
         self.destroy()
         
 
