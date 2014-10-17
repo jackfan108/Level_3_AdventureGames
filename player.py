@@ -24,7 +24,7 @@ class Player (Person):
         for x in self.location().contents():
             if x.name() == name:
                 return x
-        for x in self.peek_around():
+        for x in self.list_contents():
             if x.name() == name:
                 return x
         for x in self.contents():

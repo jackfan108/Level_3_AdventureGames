@@ -21,10 +21,22 @@ class MobileThing (Thing):
         return True
 
     def take(self,actor):
-        self.move(actor)
+        if(self.location() == actor):
+          print("You already have it!")
+        else:
+          print(actor.name() + " takes " + self.name() + " from " + self.location().name())
+          if(self.location().is_person()):
+            self.location().have_fit()
+          self.move(actor)
 
     def drop(self,actor):
+        print(actor.name() + " drops " + self.name() + " in " + actor.location())
         self.move(actor.location())
 
     def give(self,actor,target):
-        self.move(target)
+        if(target.is_person()):
+          print(actor.name() + " gives " + self.name() + " to " + target.name())
+          target.accept(self,actor)
+          self.move(target)
+        else:
+          print("Who are you giving it to? Is that a person?")

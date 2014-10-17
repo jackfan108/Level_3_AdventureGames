@@ -98,6 +98,14 @@ class Take (Verb):
     def action1 (self,obj):
         obj.take(Player.me)
         return SAME_ROUND
+        
+    def action2 (self,obj1,obj2):
+      if(obj1 in obj2.contents()):
+        obj1.take(Player.me)
+        return SAME_ROUND
+      else:
+        print(obj2.name() + " does not have " + obj1.name())
+        return SAME_ROUND
 
 class Drop (Verb):
 
@@ -111,8 +119,11 @@ class Drop (Verb):
 class Give (Verb):
 
     def action2 (self,obj1,obj2):
+      if not Player.me.have_thing(obj1):
+        Player.me.say('I am not carrying '+obj1.name())
+      else:
         obj1.give(Player.me,obj2)
-        return SAME_ROUND
+      return SAME_ROUND
 
 class Peek (Verb):
 
