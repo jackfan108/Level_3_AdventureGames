@@ -30,7 +30,7 @@ class MobileThing (Thing):
           self.move(actor)
 
     def drop(self,actor):
-        print(actor.name() + " drops " + self.name() + " in " + actor.location())
+        print(actor.name() + " drops " + self.name() + " in " + actor.location().name())
         self.move(actor.location())
 
     def give(self,actor,target):
