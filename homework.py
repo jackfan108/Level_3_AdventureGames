@@ -17,4 +17,3 @@ class Homework (MobileThing):
 
     def is_done (self):
     	return self._done
-    # FIX ME

@@ -96,7 +96,10 @@ class Use (Verb):
 class Take (Verb):
 
     def action1 (self,obj):
-        obj.take(Player.me)
+        if (obj in Player.me.stuff_around()):
+          obj.take(Player.me)
+        else:
+          print("You don't see it on the ground around you. Is someone carrying it?")
         return SAME_ROUND
         
     def action2 (self,obj1,obj2):

@@ -37,6 +37,5 @@ class MobileThing (Thing):
         if(target.is_person()):
           print(actor.name() + " gives " + self.name() + " to " + target.name())
           target.accept(self,actor)
-          self.move(target)
         else:
           print("Who are you giving it to? Is that a person?")
