@@ -105,6 +105,7 @@ class Person (MobileThing):    # Container...
         
     def accept (self,obj,source):
         self.say('Thanks, ' + source.name())
+        obj.move(self)
 
     def is_person (self):
         return True

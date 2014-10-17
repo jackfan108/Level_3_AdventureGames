@@ -69,3 +69,6 @@ class Player (Person):
         Person.die(self)
         print 'This game for you is now over...'
         sys.exit(0)
+
+    def is_player (self):
+        return True
