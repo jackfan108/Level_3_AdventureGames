@@ -43,6 +43,7 @@ class Person (MobileThing):    # Container...
           print "No one is carrying anything."
         return people_contents
 
+    # silent version of peek
     def list_contents (self):
         people = self.people_around()
         people_contents = []

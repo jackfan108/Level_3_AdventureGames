@@ -6,14 +6,11 @@ class Clock (object):
       self._current = time
       self._functions = []
       
-    def register(self,f,priority):
-      self._functions.append((f, priority))
-      self._functions = sorted(self._functions, key=itemgetter(1))
+    def register(self,priority,f):
+      self._functions.append((priority, f))
+      self._functions = sorted(self._functions, key=itemgetter(0))
       
     def tick(self):
       self._current += 1
       for func in self._functions:
         func[1](self._current)
-      
-
-    # FIX ME

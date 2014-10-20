@@ -10,7 +10,7 @@ from troll import *
 from professor import *
 from homework import *
 from computer import *
-
+from badninja import *
 
 REVERSE = {
     'north' : 'south',
@@ -90,6 +90,8 @@ def create_world ():
     Computer('johnny-5', easth, 'boop boop beep')
 
     Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
+    shredder = Badninja('Shredder',oval, random.randint(1,5),'Even scarier than Riccardo!')
+    Player.me.clock.register(1,shredder.steal_homework)
     
     homeworks = ['hw-1', 
                  'hw-2',
