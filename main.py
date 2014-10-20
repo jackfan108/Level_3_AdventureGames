@@ -166,6 +166,7 @@ def main ():
     # Create the world
     create_world()
     Player.me.look_around()
+    Player.me.clock.register(0,print_tick_action)
 
     while True:
         response = read_player_input ()
@@ -173,6 +174,7 @@ def main ():
         if response[0] in VERBS:
             result = VERBS[response[0]].act(response[1:])
             if result == NEXT_ROUND:
+                Player.me.clock.tick()
                 Player.me.look_around()
         else:
             print 'What??'
