@@ -15,7 +15,7 @@ class NPC (Person):
         NPC.npcs.append(self)
         
     def move_and_take_stuff (self,time):
-        print (self.name()+" is randomly moving around at " + self.location().name())
+        # print (self.name()+" is randomly moving around at " + self.location().name())
         if not self.is_in_limbo():
             if random.randrange(self._restlessness) == 0:
                 self.move_somewhere(time)
