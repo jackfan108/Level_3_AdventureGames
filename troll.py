@@ -1,5 +1,7 @@
 import random
 from npc import *
+from player import *
+from person import *
 
 class Troll (NPC):
 
@@ -18,3 +20,5 @@ class Troll (NPC):
             else:
                 self.location().report(self.name() + "'s belly rumbles")
 
+    def is_troll (self):
+      return True

@@ -16,13 +16,13 @@ class NPC (Person):
             if random.randrange(self._miserly) == 0:
                 self.take_something()
 
-    def move_somewhere (self):
+    def move_somewhere (self,time):
         exits = self.location().exits()
         if exits:
             dir = random.choice(exits.keys())
             self.go(dir)
 
-    def take_something (self):
+    def take_something (self,time):
         everything = []
         everything.extend(self.stuff_around())
         everything.extend(self.peek_around())

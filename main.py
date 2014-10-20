@@ -11,6 +11,7 @@ from professor import *
 from homework import *
 from computer import *
 from badninja import *
+from trollhunter import *
 
 REVERSE = {
     'north' : 'south',
@@ -92,7 +93,10 @@ def create_world ():
     Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
     shredder = Badninja('Shredder',oval, random.randint(1,5),'Even scarier than Riccardo!')
     Player.me.clock.register(1,shredder.steal_homework)
-    
+    potter = Trollhunter('Harry Potter', oval, random.randint(1,5), 'You can tell he dislikes trolls right away')
+    Player.me.clock.register(1,potter.look_for_trolls)
+    Player.me.clock.register(2,potter.move_somewhere)
+
     homeworks = ['hw-1', 
                  'hw-2',
                  'hw-3',
@@ -122,7 +126,8 @@ def create_world ():
 
     for troll in trolls:
       Troll(troll,
-            random.choice(Room.rooms),
+            # random.choice(Room.rooms),
+            oval,
             random.randint(1,3),
             random.randint(1,3),
             troll) #reuse name as description

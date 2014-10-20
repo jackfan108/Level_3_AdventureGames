@@ -125,3 +125,6 @@ class Person (MobileThing):    # Container...
 
     def contents (self):
         return self._contents
+
+    def is_troll (self):
+      return False
