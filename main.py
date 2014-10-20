@@ -167,6 +167,13 @@ def main ():
     create_world()
     Player.me.look_around()
     Player.me.clock.register(0,print_tick_action)
+    for i in range(len(NPC.npcs)):
+        Player.me.clock.register(1,NPC.npcs[i].move_and_take_stuff)
+    for i in range(len(Professor.faculty)):
+        Player.me.clock.register(2,Professor.faculty[i].lecture)
+    for i in range(len(Troll.trolls)):
+        Player.me.clock.register(3,Troll.trolls[i].eat_people)
+
 
     while True:
         response = read_player_input ()
