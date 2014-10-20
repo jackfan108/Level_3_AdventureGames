@@ -14,6 +14,3 @@ class Clock (object):
       self._current += 1
       for func in self._functions:
         func[1](self._current)
-      
-
-    # FIX ME
