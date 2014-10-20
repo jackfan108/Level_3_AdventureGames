@@ -12,6 +12,7 @@ from homework import *
 from computer import *
 from badninja import *
 from trollhunter import *
+from clock import *
 
 REVERSE = {
     'north' : 'south',
@@ -22,6 +23,7 @@ REVERSE = {
     'down' : 'up'
 }
 
+Clock(0)
 
 # add an exit in 'fr' toward 'to' in direction 'dir'
 def connect (fr,dir,to):
@@ -91,11 +93,8 @@ def create_world ():
     Computer('johnny-5', easth, 'boop boop beep')
 
     Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
-    shredder = Badninja('Shredder',oval, random.randint(1,5),'Even scarier than Riccardo!')
-    Player.me.clock.register(1,shredder.steal_homework)
-    potter = Trollhunter('Harry Potter', oval, random.randint(1,5), 'You can tell he dislikes trolls right away')
-    Player.me.clock.register(1,potter.look_for_trolls)
-    Player.me.clock.register(2,potter.move_somewhere)
+    Badninja('Shredder',oval, random.randint(1,5),'Even scarier than Riccardo!')
+    Trollhunter('Harry Potter', oval, random.randint(1,5), 'You can tell he dislikes trolls right away')
 
     homeworks = ['hw-1', 
                  'hw-2',
@@ -173,22 +172,14 @@ def main ():
     # Create the world
     create_world()
     Player.me.look_around()
-    Player.me.clock.register(0,print_tick_action)
-    for i in range(len(NPC.npcs)):
-        Player.me.clock.register(1,NPC.npcs[i].move_and_take_stuff)
-    for i in range(len(Professor.faculty)):
-        Player.me.clock.register(2,Professor.faculty[i].lecture)
-    for i in range(len(Troll.trolls)):
-        Player.me.clock.register(3,Troll.trolls[i].eat_people)
-
-
+    Clock.clocks[0].register(0,print_tick_action,0)
     while True:
         response = read_player_input ()
         print
         if response[0] in VERBS:
             result = VERBS[response[0]].act(response[1:])
             if result == NEXT_ROUND:
-                Player.me.clock.tick()
+                Clock.clocks[0].tick()
                 Player.me.look_around()
         else:
             print 'What??'

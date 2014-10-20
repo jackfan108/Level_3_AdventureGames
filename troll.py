@@ -10,6 +10,7 @@ class Troll (NPC):
         NPC.__init__(self,name,loc,restlessness,10,desc)
         self._hunger = hunger
         Troll.trolls.append(self)
+        Clock.clocks[0].register(1,self.eat_people,self._id)
 
     def eat_people (self,time):
         if not self.is_in_limbo():

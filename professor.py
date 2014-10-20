@@ -8,6 +8,7 @@ class Professor (NPC):
         NPC.__init__(self,name,loc,restlessness,100,desc)
         self._professorial = professorial
         Professor.faculty.append(self)
+        Clock.clocks[0].register(1,self.lecture,self._id)
 
     _topics = ['Turing machines',
                'the lambda calculus',
