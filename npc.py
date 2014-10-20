@@ -3,13 +3,16 @@ from player import *
 import random
 
 class NPC (Person):
+    npcs = []
 
     def __init__ (self,name,loc,restlessness,miserly,desc):
         Person.__init__(self,name,loc,desc)
         self._restlessness = restlessness
         self._miserly = miserly
+        NPC.npcs.append(self)
         
     def move_and_take_stuff (self,time):
+        print self.name()," is randomnly moving around to ",self.location().name()
         if not self.is_in_limbo():
             if random.randrange(self._restlessness) == 0:
                 self.move_somewhere()
