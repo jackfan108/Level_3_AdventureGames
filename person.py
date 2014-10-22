@@ -1,10 +1,11 @@
 from mobile import *
+import random
 
 class Person (MobileThing):    # Container...
 
     def __init__ (self,name,loc,desc):
         MobileThing.__init__(self,name,loc,desc)
-        self._max_health = 3
+        self._max_health = random.randint(2,5)
         self._health = self._max_health
         self._contents = []
 

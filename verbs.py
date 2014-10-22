@@ -92,11 +92,10 @@ class Use (Verb):
         return SAME_ROUND
 
 
-
 class Take (Verb):
 
     def action1 (self,obj):
-        if (obj in Player.me.stuff_around()):
+        if (obj in Player.me.stuff_around()) or (obj in Player.me.people_around()):
           obj.take(Player.me)
         else:
           print("You don't see it on the ground around you. Is someone carrying it?")

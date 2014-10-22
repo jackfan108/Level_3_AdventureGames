@@ -13,6 +13,7 @@ from computer import *
 from badninja import *
 from trollhunter import *
 from clock import *
+from weapon import *
 
 REVERSE = {
     'north' : 'south',
@@ -85,7 +86,8 @@ def create_world ():
     MobileThing('math-book', oval, 'math is hard.')
     MobileThing('chalice', srift, 'the mana never seems to run out')
     MobileThing('lantern', ttree, 'it\'s wriggly.')
-    MobileThing('trinity force', cscar, 'tons of damage')
+    Weapon('trinity force', cscar, 2000, 'You throw the mighty trinity force!','tons of damage')
+    Weapon('baseball bat', easth, 1, 'Bonk!','A Louisville Slugger')
     MobileThing('prox card', oval, 'Reads, \'Riccardo Pucella\'.')
     MobileThing('poro', endw, 'it\'s so fluffy!')
 
@@ -93,8 +95,8 @@ def create_world ():
     Computer('johnny-5', easth, 'boop boop beep')
 
     Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
-    Badninja('Shredder',oval, random.randint(1,5),'Even scarier than Riccardo!')
-    Trollhunter('Harry Potter', oval, random.randint(1,5), 'You can tell he dislikes trolls right away')
+    Badninja('Shredder',random.choice(Room.rooms), random.randint(1,5),'Even scarier than Riccardo!')
+    Trollhunter('Harry Potter', random.choice(Room.rooms), random.randint(1,5), 'You can tell he dislikes trolls right away')
 
     homeworks = ['hw-1', 
                  'hw-2',
@@ -126,7 +128,7 @@ def create_world ():
     for troll in trolls:
       Troll(troll,
             # random.choice(Room.rooms),
-            oval,
+            random.choice(Room.rooms),
             random.randint(1,3),
             random.randint(1,3),
             troll) #reuse name as description
