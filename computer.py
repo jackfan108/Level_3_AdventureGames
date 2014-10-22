@@ -7,9 +7,9 @@ class Computer (Thing):
 
     def use(self,actor):
         for stuff in actor.contents():
-            if stuff.is_homework():
+            if (stuff.is_homework()):
+              if not(stuff.is_done()):
                 print('You have finished ' + stuff.name())
                 stuff.do_homework()
-
-
-    # FIX ME
+              else:
+                print('You already did ' + stuff.name())
