@@ -13,6 +13,8 @@ from computer import *
 from badninja import *
 from trollhunter import *
 from clock import *
+from caterpillar import *
+from butterfly import *
 
 REVERSE = {
     'north' : 'south',
@@ -23,6 +25,7 @@ REVERSE = {
     'down' : 'up'
 }
 
+# start the clock
 Clock(0)
 
 # add an exit in 'fr' toward 'to' in direction 'dir'
@@ -88,6 +91,7 @@ def create_world ():
     MobileThing('trinity force', cscar, 'tons of damage')
     MobileThing('prox card', oval, 'Reads, \'Riccardo Pucella\'.')
     MobileThing('poro', endw, 'it\'s so fluffy!')
+    Caterpillar('caterpillar', oval, 'it\'s a big fat worm')
 
     Computer('hal-9000', ac113, 'sinister')
     Computer('johnny-5', easth, 'boop boop beep')

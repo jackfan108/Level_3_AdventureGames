@@ -9,8 +9,6 @@ class Player (Person):
     me = None
     # static field recording god_mode
     god_mode = False
-    # static field representing the clock
-    clock = Clock(0)
 
     def __init__ (self,name,loc,desc):
         Person.__init__(self,name,loc,desc)
