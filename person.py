@@ -5,7 +5,7 @@ class Person (MobileThing):    # Container...
 
     def __init__ (self,name,loc,desc):
         MobileThing.__init__(self,name,loc,desc)
-        self._max_health = random.randint(5,10)
+        self._max_health = random.randint(15,20)
         self._health = self._max_health
         self._contents = []
 
