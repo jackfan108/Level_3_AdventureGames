@@ -13,6 +13,7 @@ from computer import *
 from badninja import *
 from trollhunter import *
 from clock import *
+from weapon import *
 from caterpillar import *
 from butterfly import *
 from quest import *
@@ -90,7 +91,8 @@ def create_world ():
     MobileThing('math-book', oval, 'math is hard.')
     MobileThing('chalice', srift, 'the mana never seems to run out')
     MobileThing('lantern', ttree, 'it\'s wriggly.')
-    MobileThing('trinity force', cscar, 'tons of damage')
+    Weapon('trinity force', cscar, 2000, 'You throw the mighty trinity force!','tons of damage')
+    Weapon('baseball bat', easth, 1, 'Bonk!','A Louisville Slugger')
     MobileThing('prox card', oval, 'Reads, \'Riccardo Pucella\'.')
     MobileThing('poro', endw, 'it\'s so fluffy!')
     Caterpillar('caterpillar', oval, 'it\'s a big fat worm')
@@ -100,8 +102,8 @@ def create_world ():
 
     Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
     Wizard('Dumbledore', endw, random.randint(1,5),2,'Very very old......')
-    Badninja('Shredder',oval, random.randint(1,5),'Even scarier than Riccardo!')
-    Trollhunter('Harry Potter', oval, random.randint(1,5), 'You can tell he dislikes trolls right away')
+    Badninja('Shredder',random.choice(Room.rooms), random.randint(1,5),'Even scarier than Riccardo!')
+    Trollhunter('Harry Potter', random.choice(Room.rooms), random.randint(1,5), 'You can tell he dislikes trolls right away')
 
     homeworks = ['hw-1', 
                  'hw-2',
