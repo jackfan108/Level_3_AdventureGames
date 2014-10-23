@@ -8,7 +8,6 @@ class Homework (MobileThing):
         self._done = False
 
     def do_homework (self):
-      if (self._done != True):
         self._done = True
         self._name = 'done-' + self._name
 
@@ -16,4 +15,4 @@ class Homework (MobileThing):
         return True
 
     def is_done (self):
-    	return self._done
+        return self._done

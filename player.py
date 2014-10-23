@@ -61,7 +61,6 @@ class Player (Person):
         else:
             print 'There are no exits'
 
-
     def die (self):
         self.say('I am slain!')
         Person.die(self)

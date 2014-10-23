@@ -75,7 +75,7 @@ class Person (MobileThing):    # Container...
     def suffer (self,hits):
         self.say('Ouch! '+str(hits)+' hits is more than I want!')
         self._health -= hits
-        if (self.health() < 0):
+        if (self.health() < 1):
             self.die()
         else:
             self.say('My health is now '+str(self.health()))

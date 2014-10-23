@@ -26,3 +26,14 @@ class Troll (NPC):
 
     def is_troll (self):
       return True
+
+    def die (self):
+        self.location().broadcast('An earth-shattering, soul-piercing scream is heard...')
+        item = random.randint(1,3)
+        if item == 1:
+            MobileThing('Troll-Head',self.location(),'This is the head of a troll...')
+        elif item == 2:
+            MobileThing('Troll-Bones',self.location(),'These are the bones of a troll...')
+        else:
+            self.say('Better luck next time! No troll bits for you!')
+        self.destroy()

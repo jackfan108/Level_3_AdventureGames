@@ -1,5 +1,6 @@
 import sys
 from player import *
+from quest import *
 
 SAME_ROUND = 1
 NEXT_ROUND = 2  
@@ -132,3 +133,8 @@ class Peek (Verb):
 
     def action0 (self):
         Player.me.peek_around()
+
+class PrintQuest (Verb):
+    def action0 (self):
+        print Quest.quests[0]._instruction
+        return SAME_ROUND

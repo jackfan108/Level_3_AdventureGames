@@ -15,6 +15,8 @@ from trollhunter import *
 from clock import *
 from caterpillar import *
 from butterfly import *
+from quest import *
+from dumbledore import *
 
 REVERSE = {
     'north' : 'south',
@@ -97,6 +99,7 @@ def create_world ():
     Computer('johnny-5', easth, 'boop boop beep')
 
     Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
+    Wizard('Dumbledore', endw, random.randint(1,5),2,'Very very old......')
     Badninja('Shredder',oval, random.randint(1,5),'Even scarier than Riccardo!')
     Trollhunter('Harry Potter', oval, random.randint(1,5), 'You can tell he dislikes trolls right away')
 
@@ -125,12 +128,18 @@ def create_world ():
             student) #reuse name as description
 
     trolls = ['Polyphemus',
-              'Gollum']
+              'Gollum',
+              'Krug',
+              'Elder Lizard Troll',
+              'Ancient Golem Troll',
+              'Super Troll',
+              'God Troll',
+              'Umbridge']
 
     for troll in trolls:
       Troll(troll,
             # random.choice(Room.rooms),
-            oval,
+            random.choice(Room.rooms),
             random.randint(1,3),
             random.randint(1,3),
             troll) #reuse name as description
@@ -151,7 +160,8 @@ VERBS = {
     'east' : Direction('east'),
     'west' : Direction('west'),
     'up'   : Direction('up'),
-    'down' : Direction('down')
+    'down' : Direction('down'),
+    'quest' : PrintQuest()
 }
   
 
@@ -187,6 +197,8 @@ def main ():
                 Player.me.look_around()
         else:
             print 'What??'
+        if Clock.clocks[0]._current == 3:
+            Quest('Troll Hunting', 'Your mission, should you choose to accept it... Like you have a choice.')
             
 
 if __name__ == '__main__':
