@@ -100,9 +100,9 @@ def create_world ():
     Computer('hal-9000', ac113, 'sinister')
     Computer('johnny-5', easth, 'boop boop beep')
 
-    Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
-    Wizard('Dumbledore', endw, random.randint(1,5),2,'Very very old......')
-    Badninja('Shredder',random.choice(Room.rooms), random.randint(1,5),'Even scarier than Riccardo!')
+    Professor('Riccardo',mh353,random.randint(2,5),2,'Scary!')
+    Wizard('Dumbledore', endw, random.randint(2,5),2,'Very very old......')
+    Badninja('Shredder',random.choice(Room.rooms), random.randint(2,5),'Even scarier than Riccardo!')
     Trollhunter('Harry Potter', random.choice(Room.rooms), random.randint(2,5), 'You can tell he dislikes trolls right away')
 
     homeworks = ['hw-1', 
@@ -125,8 +125,8 @@ def create_world ():
     for student in students:
         NPC(student,
             random.choice(Room.rooms),
-            random.randint(1,5),
-            random.randint(1,5),
+            random.randint(2,5),
+            random.randint(2,5),
             student) #reuse name as description
 
     trolls = ['Polyphemus',

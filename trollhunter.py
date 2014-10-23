@@ -15,5 +15,6 @@ class Trollhunter(NPC):
       for target in people:
         if (target.is_troll()):
           self.say('A troll! ATTAAAAAACK!')
-          self.location().report(self.name() + ' attaacks the troll ' + target.name())
-          target.suffer(999)
+          self.location().report(self.name() + ' attacks the troll ' + target.name())
+          target.suffer(9999)
+          break

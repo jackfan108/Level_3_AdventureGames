@@ -32,8 +32,10 @@ class Troll (NPC):
         item = random.randint(1,3)
         if item == 1:
             MobileThing('Troll-Head',self.location(),'This is the head of a troll...')
+            self.location().report('The troll\'s head rolls to the ground!')
         elif item == 2:
             MobileThing('Troll-Bones',self.location(),'These are the bones of a troll...')
+            self.location().report('The troll\'s bones fall to the ground!')
         else:
             self.say('Better luck next time! No troll bits for you!')
         MobileThing.instances.remove(self)

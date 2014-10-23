@@ -29,7 +29,7 @@ class Wizard (NPC):
       inventoryNames = []
       for obj in self.contents():
           inventoryNames.append(obj.name())
-      if ('Troll Head' in inventoryNames) and ('Troll Bones' in inventoryNames):
+      if ('Troll-Head' in inventoryNames) and ('Troll-Bones' in inventoryNames):
         print("Good job! You get 2 points for Gryffindor. Did I say 3? Oops deflation. Suck on that!")
         Quest.quests[0].accomplishQuest()
         sys.exit(0)
