@@ -36,4 +36,5 @@ class Caterpillar (MobileThing):
             else:
                 self.location().report('A butterfly bursts out of the cocoon. I\'m freeeeeeeeeee...')
                 Butterfly('butterfly', self._location, 1, 'it\'s a beautiful butterfly.')
+            MobileThing.instances.remove(self)
             self.destroy()

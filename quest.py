@@ -10,10 +10,8 @@ class Quest(WObject):
         self._desc = desc
         self._done = False
         print(self._desc)
-        self._instruction = 'Go find Harry Potter, the troll hunter for further instructions :D'
-        print(self._instruction)
+        self._instruction = 'Maybe you will get a quest soon?'
         self._id = uuid.uuid4()
-        Clock.clocks[0].register(4,self.TrollHunterInRoom,self._id)
         Quest.quests.append(self)
 
 

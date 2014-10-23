@@ -103,7 +103,7 @@ def create_world ():
     Professor('Riccardo',mh353,random.randint(1,5),2,'Scary!')
     Wizard('Dumbledore', endw, random.randint(1,5),2,'Very very old......')
     Badninja('Shredder',random.choice(Room.rooms), random.randint(1,5),'Even scarier than Riccardo!')
-    Trollhunter('Harry Potter', random.choice(Room.rooms), random.randint(1,5), 'You can tell he dislikes trolls right away')
+    Trollhunter('Harry Potter', random.choice(Room.rooms), random.randint(2,5), 'You can tell he dislikes trolls right away')
 
     homeworks = ['hw-1', 
                  'hw-2',
@@ -189,6 +189,7 @@ def main ():
     create_world()
     Player.me.look_around()
     Clock.clocks[0].register(0,print_tick_action,0)
+    Quest('Troll Hunting', 'Maybe you will get a quest soon?')
     while True:
         response = read_player_input ()
         print
@@ -200,8 +201,9 @@ def main ():
         else:
             print 'What??'
         if Clock.clocks[0]._current == 3:
-            Quest('Troll Hunting', 'Your mission, should you choose to accept it... Like you have a choice.')
-            
+            Quest.quests[0]._instruction = 'Go find Harry Potter, the troll hunter for further instructions :D'
+            print Quest.quests[0]._instruction
+            Clock.clocks[0].register(4,Quest.quests[0].TrollHunterInRoom,Quest.quests[0]._id)
 
 if __name__ == '__main__':
     main()

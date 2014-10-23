@@ -36,4 +36,5 @@ class Troll (NPC):
             MobileThing('Troll-Bones',self.location(),'These are the bones of a troll...')
         else:
             self.say('Better luck next time! No troll bits for you!')
+        MobileThing.instances.remove(self)
         self.destroy()

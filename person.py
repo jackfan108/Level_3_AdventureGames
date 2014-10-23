@@ -5,7 +5,7 @@ class Person (MobileThing):    # Container...
 
     def __init__ (self,name,loc,desc):
         MobileThing.__init__(self,name,loc,desc)
-        self._max_health = random.randint(2,5)
+        self._max_health = random.randint(5,10)
         self._health = self._max_health
         self._contents = []
 
@@ -85,6 +85,7 @@ class Person (MobileThing):    # Container...
         self.location().broadcast('An earth-shattering, soul-piercing scream is heard...')
         for item in self.contents():
           item.move(self.location())
+        MobileThing.instances.remove(self)
         self.destroy()
         
 
