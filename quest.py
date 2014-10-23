@@ -45,4 +45,3 @@ class Quest(WObject):
     def accomplishQuest(self):
         self._done = True
         print "You've completed the quest!"
-        self.destroy()
