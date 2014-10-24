@@ -38,5 +38,7 @@ class Troll (NPC):
             self.location().report('The troll\'s bones fall to the ground!')
         else:
             self.say('Better luck next time! No troll bits for you!')
+        for item in self.contents():
+          item.move(self.location())
         MobileThing.instances.remove(self)
         self.destroy()

@@ -60,6 +60,7 @@ class Player (Person):
             print 'Exits:', ', '.join([x for x in exits])
         else:
             print 'There are no exits'
+        print 'You have', self._health, 'health.'
 
     def die (self):
         self.say('I am slain!')
